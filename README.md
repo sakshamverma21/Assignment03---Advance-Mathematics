@@ -1,34 +1,23 @@
-Title: Learning Probability Density Function using Non-Linear Transformation
-1. Methodology
+# Learning Probability Density Function using Non-Linear Transformation
 
-The NO₂ values from the given air quality dataset are first cleaned by removing missing entries. Each value is then transformed using a roll-number-dependent non-linear function:
+## 1. Methodology
+- NO₂ concentration values are extracted from the air quality dataset and missing entries are removed.
+- Each value is transformed using a roll-number-based non-linear function:
+  z = x + a_r sin(b_r x)
+- The transformed data is modeled using the probability density function:
+  p̂(z) = c · e^(−λ(z − μ)²)
+- The parameters are estimated using direct statistical computation without optimization.
 
-z = x + aᵣ sin(bᵣ x)
+## 2. Description
+This assignment focuses on estimating the parameters of a probability density function after applying a non-linear transformation to real-world data. Since the given probability density function corresponds to a Gaussian distribution, the mean and variance are computed directly from the transformed data, and the remaining parameters are derived analytically.
 
-where the constants aᵣ and bᵣ are calculated using the university roll number as specified in the assignment. After transformation, the resulting values are modeled using a probability density function of the form:
+## 3. Input / Output
+**Input:**  
+- NO₂ concentration values  
+- University roll number  
 
-p̂(z) = c · e^(−λ(z − μ)²)
-
-The parameters of this function are computed using direct statistical estimation.
-
-2. Description
-
-The objective of this assignment is to learn the parameters of a probability density function after applying a non-linear transformation to real-world data. Since the given probability density function corresponds to a Gaussian distribution, the mean and variance of the transformed data are calculated directly, and the remaining parameters are derived analytically. No optimization or machine learning techniques are used.
-
-3. Input / Output
-
-Input:
-
-NO₂ concentration values from the dataset
-
-University roll number
-
-Output:
-
-Estimated probability density function parameters:
-
-Mean (μ)
-
-Lambda (λ)
-
-Constant (c)
+**Output:**  
+- Estimated PDF parameters:
+  - Mean (μ)
+  - Lambda (λ)
+  - Constant (c)
